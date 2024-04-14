@@ -45,14 +45,26 @@
                 <TextBox Text="{Binding FirstName, Mode=TwoWay}" />
                 <TextBlock Text="По батькові" />
                 <TextBox Text="{Binding SoName, Mode=TwoWay}" />
+                <TextBlock Text="Посада" />
+                <TextBox Text="{Binding JobTitle, Mode=TwoWay}" />
+                <TextBlock Text="Адреса" />
+                <TextBox Text="{Binding Adress, Mode=TwoWay}" />
+                <TextBlock Text="Телефон" />
+                <TextBox Text="{Binding Phone, Mode=TwoWay}" />
+                <TextBlock Text="День народження" />
+                <TextBox Text="{Binding Birthday, Mode=TwoWay}" />
                 <TextBlock Text="Заробітна плата" />
                 <TextBox Text="{Binding Salary, Mode=TwoWay}" />
-                <TextBlock Text="Color" />
+                <TextBlock Text="Прийнят на роботу" />
+                <TextBox Text="{Binding StartDate, Mode=TwoWay}" />
+                <TextBlock Text="Звільнений" />
+                <TextBox Text="{Binding EndDate, Mode=TwoWay}" />
+                <!--<TextBlock Text="Color" />
                 <TextBox Text="{Binding Color, Mode=TwoWay}" />
                 <Border Background="{Binding Color}"
                         Height="10" />
                 <TextBlock Text="Reference" />
-                <TextBox Text="{Binding Reference, Mode=TwoWay}" />
+                <TextBox Text="{Binding Reference, Mode=TwoWay}" />-->
             </StackPanel>
         </Border>
     </Grid>
