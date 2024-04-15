@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace OptimaWpfApp
 {
     class EmployeesManagementMVVMViewModel : Notifier
     {
         #region Input and output properties
+
+        private Employee employeeAdd;
+
+        public Employee EmployeeAdd
+        {
+            get { return employeeAdd; }
+            set
+            {
+                employeeAdd = value;
+                base.OnPropertyChanged("EmployeeAdd");
+                OnEmployeeAddChanged();
+            }
+        }
 
         private string searchInput;
 
@@ -23,28 +37,28 @@ namespace OptimaWpfApp
             }
         }
 
-        private IEnumerable<Employee> foundProducts;
+        private IEnumerable<Employee> foundEmployees;
 
-        public IEnumerable<Employee> FoundProducts
+        public IEnumerable<Employee> FoundEmployees
         {
-            get { return foundProducts; }
+            get { return foundEmployees; }
             set
             {
-                foundProducts = value;
-                OnPropertyChanged("FoundProducts");
+                foundEmployees = value;
+                OnPropertyChanged("FoundEmployees");
             }
         }
 
 
-        private Employee selectedProduct;
+        private Employee selectedEmployee;
 
-        public Employee SelectedProduct
+        public Employee SelectedEmployee
         {
-            get { return selectedProduct; }
+            get { return selectedEmployee; }
             set
             {
-                selectedProduct = value;
-                OnPropertyChanged("SelectedProduct");
+                selectedEmployee = value;
+                OnPropertyChanged("SelectedEmployee");
             }
         }
 
@@ -55,17 +69,22 @@ namespace OptimaWpfApp
         public EmployeesManagementMVVMViewModel()
         {
             // Необов’язково: ми просто перевіряємо, чи список порожній.
-            FoundProducts = factory.GetAllEmployees();
-            //FoundProducts = Enumerable.Empty<Employee>();
+            FoundEmployees = factory.GetAllEmployees();
         }
 
         private void OnSearchInputChanged()
         {
             // Необов’язково: просто переконайтеся,
             // що будь-який вибраний продукт не вибраний
-            SelectedProduct = null;
+            SelectedEmployee = null;
 
-            FoundProducts = factory.FindEmployees(SearchInput);
+            FoundEmployees = factory.FindEmployees(SearchInput);
+        }
+
+        private void OnEmployeeAddChanged()
+        {
+            MessageBox.Show("Hi!");
+            //throw new NotImplementedException();
         }
     }
 }

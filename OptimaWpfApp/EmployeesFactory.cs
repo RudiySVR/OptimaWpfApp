@@ -13,6 +13,11 @@ namespace OptimaWpfApp
             return employees;
         }
 
+        public void Add(Employee employee) 
+        {
+            employees.Add(employee);
+        }
+
         public IEnumerable<Employee> FindEmployees(string searchString)
         {
             return employees.Where(p => p.LastName.Contains(searchString));
@@ -40,7 +45,8 @@ namespace OptimaWpfApp
                 JobTitle = "",
                 Birthday = new DateTime(1999, 7, 20),
                 StartDate = new DateTime(2015, 7, 4),
-                //EndDate = DateTime.Now
+                EndDate = new DateTime(2017, 7, 4),
+                Fired=true
             });
             employees.Add(new Employee()
             {
@@ -55,14 +61,15 @@ namespace OptimaWpfApp
                 JobTitle = "",
                 Birthday = DateTime.Now,
                 StartDate = DateTime.Now,
-                EndDate = DateTime.Now
+                //EndDate = DateTime.Now
+                Fired=false
             });
             employees.Add(new Employee()
             {
                 Id = 3,
                 TabNumber = "0249",
-                FirstName = "Tom",
-                LastName = "Ronald",
+                FirstName = "Микола",
+                LastName = "Петренко",
                 SoName = "",
                 Salary = 130.25M,
                 Adress = "",
@@ -70,14 +77,15 @@ namespace OptimaWpfApp
                 JobTitle = "",
                 Birthday = DateTime.Now,
                 StartDate = DateTime.Now,
-                EndDate = DateTime.Now
+                //EndDate = DateTime.Now
+                Fired = false
             });
             employees.Add(new Employee()
             {
                 Id = 4,
                 TabNumber = "0348",
-                FirstName = "Jane",
-                LastName = "Roe",
+                FirstName = "Юрій",
+                LastName = "Колотенко",
                 SoName = "",
                 Salary = 130.25M,
                 Adress = "",
@@ -85,11 +93,9 @@ namespace OptimaWpfApp
                 JobTitle = "",
                 Birthday = DateTime.Now,
                 StartDate = DateTime.Now,
-                EndDate = DateTime.Now
+                //EndDate = DateTime.Now
+                Fired = false
             });
-            //employees.Add(new Employee("Петро", "Рябий"));
-            //employees.Add(new Employee("Tom", "Ronald"));
-            //employees.Add(new Employee("Jane", "Roe"));
         }
         #endregion
     }

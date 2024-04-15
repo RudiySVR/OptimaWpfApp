@@ -1,0 +1,77 @@
+﻿<Page x:Class="OptimaWpfApp.AddWorker"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OptimaWpfApp"
+       xmlns:vm="clr-namespace:OptimaWpfApp"
+     mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddWorker">
+    <Page.DataContext>
+        <vm:EmployeesManagementMVVMViewModel />
+    </Page.DataContext>
+
+    <Grid>
+        <Border DataContext="{Binding EmployeeAdd, Mode=Default, UpdateSourceTrigger=PropertyChanged}" 
+                Margin="0,60,10,10"
+                HorizontalAlignment="Right"
+                Width="780"
+                Background="#66FFFFFF">
+            <StackPanel Margin="10">
+                <TextBlock Text="Співробітник"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        Margin="10" />
+                <TextBlock Text="Табельний №" />
+                <TextBox Text="{Binding TabNumber, Mode=TwoWay}" />
+                <TextBlock Text="Прізвище" />
+                <TextBox Text="{Binding LastName, Mode=TwoWay}" />
+                <TextBlock Text="Ім'я" />
+                <TextBox Text="{Binding FirstName, Mode=TwoWay}" />
+                <TextBlock Text="По батькові" />
+                <TextBox Text="{Binding SoName, Mode=TwoWay}" />
+                <TextBlock Text="Посада" />
+                <TextBox Text="{Binding JobTitle, Mode=TwoWay}" />
+                <TextBlock Text="Адреса" />
+                <TextBox Text="{Binding Adress, Mode=TwoWay}" />
+                <TextBlock Text="Телефон" />
+                <TextBox Text="{Binding Phone, Mode=TwoWay}" />
+                <TextBlock Text="День народження" />
+                <DatePicker SelectedDate="{Binding Birthday, Mode=TwoWay}" SelectedDateFormat="Short" />
+                <!--<TextBox Text="{Binding Birthday, Mode=TwoWay}" />-->
+                <TextBlock Text="Заробітна плата" />
+                <TextBox Text="{Binding Salary, Mode=TwoWay}" />
+                <TextBlock Text="Прийнят на роботу" />
+                <DatePicker SelectedDate="{Binding StartDate, Mode=TwoWay}" SelectedDateFormat="Short" />
+                <!--<TextBox Text="{Binding StartDate, Mode=TwoWay}" />-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Звільнений" />
+                    <CheckBox IsChecked="{Binding Fired, Mode=TwoWay}" />
+                </StackPanel>
+                <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}" SelectedDateFormat="Short" >
+                    <DatePicker.Style>
+                        <Style TargetType="DatePicker">
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Fired}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Fired}" Value="False">
+                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DatePicker.Style>
+                </DatePicker>
+                <Button  DataContext="{Binding EmployeeAdd, Mode=Default, UpdateSourceTrigger=PropertyChanged}" 
+                         Name="btn2" Background="LightBlue" 
+                         BorderBrush="Black" BorderThickness="1" 
+                         Click="OnClick2" ClickMode="Press">
+                    Новий співробітник
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

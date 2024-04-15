@@ -24,5 +24,9 @@ namespace OptimaWpfApp
         {
             InitializeComponent();
         }
+        void OnClick2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/AddWorker.xaml", UriKind.Relative));
+        }
     }
 }

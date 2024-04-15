@@ -7,7 +7,6 @@
       xmlns:vm="clr-namespace:OptimaWpfApp"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Height="Auto"
       Title="EmployeesManagementMVVM">
     <Page.DataContext>
         <vm:EmployeesManagementMVVMViewModel />
@@ -26,17 +25,43 @@
                    TextWrapping="Wrap"
                    Text="Пошук:"
                    VerticalAlignment="Top" />
-        <DataGrid ItemsSource="{Binding FoundProducts}"
-                  SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
-                   AutoGenerateColumns="False"
+        <DataGrid ItemsSource="{Binding FoundEmployees}"
+                  SelectedItem="{Binding SelectedEmployee, Mode=TwoWay}"
+                  CanUserAddRows="False" 
+                  AutoGenerateColumns="False"
                   Margin="10,60,191.222,10.444" >
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Fired}" Value="True">
+                            <Setter Property="Foreground" Value="Red"></Setter>
+                        </DataTrigger>
+                        <!--<DataTrigger Binding="{Binding Status}" Value="inPosition">
+                            <Setter Property="Background" Value="LightGreen"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Status}" Value="waitDeal">
+                            <Setter Property="Background" Value="LightGoldenrodYellow"></Setter>
+                        </DataTrigger>-->
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Модель" Binding="{Binding Path=TabNumber}" Width="90" />
-                <DataGridHyperlinkColumn Header="Компания" Binding="{Binding Path=LastName}" Width="80" />
-                <DataGridTextColumn Header="Цена" Binding="{Binding Path=FirstName}" Width="50" />
+                <DataGridTextColumn Header="Табельний №" Binding="{Binding Path=TabNumber}" />
+                <DataGridTextColumn Header="Прізвище" Binding="{Binding Path=LastName}" />
+                <DataGridTextColumn Header="Ім'я" Binding="{Binding Path=FirstName}" />
+                <DataGridTextColumn Header="По батькові" Binding="{Binding Path=SoName}" Width="Auto" />
+                <DataGridTextColumn Header="Посада" Binding="{Binding Path=JobTitle}" />
+                <DataGridTextColumn Header="Адреса" Binding="{Binding Path=Adress}" />
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" />
+                <DataGridTextColumn Header="День народження" Binding="{Binding Path=Birthday, StringFormat=dd.MM.yyyy}" />
+                <DataGridTextColumn Header="Заробітна плата" Binding="{Binding Path=Salary}" />
+                <DataGridTextColumn Header="Прийнят на роботу" Binding="{Binding Path=StartDate, StringFormat=dd.MM.yyyy}" />
+                <!--<DataGridTextColumn Header="Звільнений" Binding="{Binding Path=EndDate, StringFormat=dd.MM.yyyy}" />
+                <DataGridCheckBoxColumn Header="Звільнений" Binding="{Binding Path=Fired}" />-->
             </DataGrid.Columns>
         </DataGrid>
-        <Border DataContext="{Binding SelectedProduct}"
+        <Border DataContext="{Binding SelectedEmployee}"
                 Margin="0,60,10.222,10.444"
                 HorizontalAlignment="Right"
                 Width="162"
@@ -69,15 +94,30 @@
                 <TextBlock Text="Прийнят на роботу" />
                 <DatePicker SelectedDate="{Binding StartDate, Mode=TwoWay}" SelectedDateFormat="Short" />
                 <!--<TextBox Text="{Binding StartDate, Mode=TwoWay}" />-->
-                <TextBlock Text="Звільнений" />
-                <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}" SelectedDateFormat="Short" />
-                <!--<TextBox Text="{Binding EndDate, Mode=TwoWay}" />-->
-                <!--<TextBlock Text="Color" />
-                <TextBox Text="{Binding Color, Mode=TwoWay}" />
-                <Border Background="{Binding Color}"
-                        Height="10" />
-                <TextBlock Text="Reference" />
-                <TextBox Text="{Binding Reference, Mode=TwoWay}" />-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Звільнений" />
+                    <CheckBox IsChecked="{Binding Fired, Mode=TwoWay}" />
+                </StackPanel>
+                <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}" SelectedDateFormat="Short" >
+                    <DatePicker.Style>
+                        <Style TargetType="DatePicker">
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Fired}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Fired}" Value="False">
+                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DatePicker.Style>
+                </DatePicker>
+                <Button Name="btn2" Background="LightBlue" 
+                        BorderBrush="Black" BorderThickness="1" 
+                        Click="OnClick2" ClickMode="Press">
+                    Новий співробітник
+                </Button>
             </StackPanel>
         </Border>
     </Grid>

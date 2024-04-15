@@ -140,6 +140,22 @@ namespace OptimaWpfApp
                 OnPropertyChanged("EndDate");
             }
         }
+        //public DateTime EndDate { get; set; }
+        private bool fired;
+        public bool Fired
+        {
+            get { return fired; }
+            set
+            {
+                fired = value;
+                if (fired)
+                {
+                    endDate =  DateTime.Now;
+                }
+                OnPropertyChanged("Fired");
+                OnPropertyChanged("EndDate");
+            }
+        }
         public Employee() { }
         public Employee(string firstName, string lastName)
         {
