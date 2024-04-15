@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:OptimaWpfApp"
       xmlns:vm="clr-namespace:OptimaWpfApp"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
+      Height="Auto"
       Title="EmployeesManagementMVVM">
     <Page.DataContext>
         <vm:EmployeesManagementMVVMViewModel />
@@ -52,13 +53,16 @@
                 <TextBlock Text="Телефон" />
                 <TextBox Text="{Binding Phone, Mode=TwoWay}" />
                 <TextBlock Text="День народження" />
-                <TextBox Text="{Binding Birthday, Mode=TwoWay}" />
+                <DatePicker SelectedDate="{Binding Birthday, Mode=TwoWay}" SelectedDateFormat="Short" />
+                <!--<TextBox Text="{Binding Birthday, Mode=TwoWay}" />-->
                 <TextBlock Text="Заробітна плата" />
                 <TextBox Text="{Binding Salary, Mode=TwoWay}" />
                 <TextBlock Text="Прийнят на роботу" />
-                <TextBox Text="{Binding StartDate, Mode=TwoWay}" />
+                <DatePicker SelectedDate="{Binding StartDate, Mode=TwoWay}" SelectedDateFormat="Short" />
+                <!--<TextBox Text="{Binding StartDate, Mode=TwoWay}" />-->
                 <TextBlock Text="Звільнений" />
-                <TextBox Text="{Binding EndDate, Mode=TwoWay}" />
+                <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}" SelectedDateFormat="Short" />
+                <!--<TextBox Text="{Binding EndDate, Mode=TwoWay}" />-->
                 <!--<TextBlock Text="Color" />
                 <TextBox Text="{Binding Color, Mode=TwoWay}" />
                 <Border Background="{Binding Color}"

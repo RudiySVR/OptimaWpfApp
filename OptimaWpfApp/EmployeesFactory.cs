@@ -38,13 +38,58 @@ namespace OptimaWpfApp
                 Adress = "",
                 Phone = "",
                 JobTitle = "",
+                Birthday = new DateTime(1999, 7, 20),
+                StartDate = new DateTime(2015, 7, 4),
+                //EndDate = DateTime.Now
+            });
+            employees.Add(new Employee()
+            {
+                Id = 2,
+                TabNumber = "0278",
+                FirstName = "Петро",
+                LastName = "Рябий",
+                SoName = "",
+                Salary = 130.25M,
+                Adress = "",
+                Phone = "",
+                JobTitle = "",
                 Birthday = DateTime.Now,
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now
             });
-            employees.Add(new Employee("Петро", "Рябий"));
-            employees.Add(new Employee("Tom", "Ronald"));
-            employees.Add(new Employee("Jane", "Roe"));
+            employees.Add(new Employee()
+            {
+                Id = 3,
+                TabNumber = "0249",
+                FirstName = "Tom",
+                LastName = "Ronald",
+                SoName = "",
+                Salary = 130.25M,
+                Adress = "",
+                Phone = "",
+                JobTitle = "",
+                Birthday = DateTime.Now,
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now
+            });
+            employees.Add(new Employee()
+            {
+                Id = 4,
+                TabNumber = "0348",
+                FirstName = "Jane",
+                LastName = "Roe",
+                SoName = "",
+                Salary = 130.25M,
+                Adress = "",
+                Phone = "",
+                JobTitle = "",
+                Birthday = DateTime.Now,
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now
+            });
+            //employees.Add(new Employee("Петро", "Рябий"));
+            //employees.Add(new Employee("Tom", "Ronald"));
+            //employees.Add(new Employee("Jane", "Roe"));
         }
         #endregion
     }
