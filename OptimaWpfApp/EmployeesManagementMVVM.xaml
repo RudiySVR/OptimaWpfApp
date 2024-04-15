@@ -28,7 +28,14 @@
                    VerticalAlignment="Top" />
         <DataGrid ItemsSource="{Binding FoundProducts}"
                   SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
-                  Margin="10,60,191.222,10.444" />
+                   AutoGenerateColumns="False"
+                  Margin="10,60,191.222,10.444" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Path=TabNumber}" Width="90" />
+                <DataGridHyperlinkColumn Header="Компания" Binding="{Binding Path=LastName}" Width="80" />
+                <DataGridTextColumn Header="Цена" Binding="{Binding Path=FirstName}" Width="50" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Border DataContext="{Binding SelectedProduct}"
                 Margin="0,60,10.222,10.444"
                 HorizontalAlignment="Right"
@@ -40,6 +47,8 @@
                         FontSize="16"
                         HorizontalAlignment="Center"
                         Margin="10" />
+                <TextBlock Text="Табельний №" />
+                <TextBox Text="{Binding TabNumber, Mode=TwoWay}" />
                 <TextBlock Text="Прізвище" />
                 <TextBox Text="{Binding LastName, Mode=TwoWay}" />
                 <TextBlock Text="Ім'я" />
