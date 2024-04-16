@@ -6,8 +6,42 @@
         xmlns:local="clr-namespace:OptimaWpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="1000">
-    <Grid>
-        <!--<Frame Source="/AddWorker.xaml" />-->
-        <Frame Source="/EmployeesManagementMVVM.xaml" NavigationUIVisibility="Hidden" />
-    </Grid>
+    <DockPanel LastChildFill="True">
+
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Імпорт" Click="Import_Click"></MenuItem>
+                <MenuItem Header="Експорт" Click="Export_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Вихід" Click="Exit_Click"></MenuItem>
+            </MenuItem>
+
+            <!--<MenuItem Header="Edit">
+                <MenuItem Header="Undo"></MenuItem>
+                <MenuItem Header="Redo"></MenuItem>
+
+                <Separator>
+                    --><!--Создание своего сепаратора--><!--
+                    <Separator.Template>
+                        <ControlTemplate>
+                            <Border CornerRadius="2" Padding="5" BorderBrush="Black" BorderThickness="1" Background="PaleGoldenrod">
+                                <TextBlock FontWeight="Bold">
+                                    Редактирование
+                                </TextBlock>
+                            </Border>
+                        </ControlTemplate>
+                    </Separator.Template>
+                </Separator>
+
+                <MenuItem Header="Cut"></MenuItem>
+                <MenuItem Header="Copy"></MenuItem>
+                <MenuItem Header="Paste"></MenuItem>
+            </MenuItem>-->
+
+        </Menu>
+        <Grid>
+            <!--<Frame Source="/AddWorker.xaml" />-->
+            <Frame Source="/EmployeesManagementMVVM.xaml" NavigationUIVisibility="Hidden" />
+        </Grid>
+    </DockPanel>
 </Window>

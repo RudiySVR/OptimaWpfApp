@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OptimaWpfApp.Sevices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,25 @@ namespace OptimaWpfApp
             employees.Add(employee);
         }
 
+        public void Import()
+        {
+            WorkerManipulation workerManipulation = new WorkerManipulation();
+            employees.Clear();
+            //foreach (var item in employees)
+            //{
+            //    employees.Remove(item);
+            //}
+            IEnumerable<Employee> temp = workerManipulation.ReadJson();
+            foreach (var item in temp)
+            {
+                employees.Add(item);
+            }
+        }
+
         public IEnumerable<Employee> FindEmployees(string searchString)
         {
-            return employees.Where(p => p.LastName.Contains(searchString));
-            //return employees.Where(p => p.TabNumber.Contains(searchString) || p.LastName.Contains(searchString));
+            //return employees.Where(p => p.LastName.Contains(searchString));
+            return employees.Where(p => p.TabNumber.Contains(searchString) || p.LastName.Contains(searchString));
         }
 
         #region In-memory data

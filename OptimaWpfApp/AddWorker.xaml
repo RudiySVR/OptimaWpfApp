@@ -24,18 +24,16 @@
                         FontSize="16"
                         HorizontalAlignment="Center"
                         Margin="10" />
-                <TextBlock Text="Табельний №" />
-                <TextBox Text="{Binding TabNumber, Mode=TwoWay}" />
-                <TextBlock Text="Прізвище" />
-                <TextBox Text="{Binding LastName, Mode=TwoWay}" />
-                <TextBlock Text="Ім'я" />
-                <TextBox 
-                    Text="{Binding Path=CurrentEmployee.FirstName, UpdateSourceTrigger=PropertyChanged}">
-                </TextBox>
+                <TextBlock Text="Табельний № *" />
+                <TextBox Text="{Binding Path=CurrentEmployee.TabNumber, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Прізвище *" />
+                <TextBox Text="{Binding Path=CurrentEmployee.LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Ім'я *" />
+                <TextBox Text="{Binding Path=CurrentEmployee.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="По батькові" />
-                <TextBox Text="{Binding SoName, Mode=TwoWay}" />
+                <TextBox Text="{Binding Path=CurrentEmployee.SoName, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Посада" />
-                <TextBox Text="{Binding JobTitle, Mode=TwoWay}" />
+                <TextBox Text="{Binding Path=CurrentEmployee.JobTitle, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Адреса" />
                 <TextBox Text="{Binding Adress, Mode=TwoWay}" />
                 <TextBlock Text="Телефон" />
@@ -48,11 +46,11 @@
                 <TextBlock Text="Прийнят на роботу" />
                 <DatePicker SelectedDate="{Binding StartDate, Mode=TwoWay}" SelectedDateFormat="Short" />
                 <!--<TextBox Text="{Binding StartDate, Mode=TwoWay}" />-->
-                <StackPanel Orientation="Horizontal">
+                <!--<StackPanel Orientation="Horizontal">
                     <TextBlock Text="Звільнений" />
                     <CheckBox IsChecked="{Binding Fired, Mode=TwoWay}" />
-                </StackPanel>
-                <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}" SelectedDateFormat="Short" >
+                </StackPanel>-->
+                <!--<DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}" SelectedDateFormat="Short" >
                     <DatePicker.Style>
                         <Style TargetType="DatePicker">
                             <Setter Property="Foreground" Value="Black"/>
@@ -66,11 +64,11 @@
                             </Style.Triggers>
                         </Style>
                     </DatePicker.Style>
-                </DatePicker>
+                </DatePicker>-->
                 <StackPanel Orientation="Horizontal">
                     <Button Height="24" 
                             Padding="10,2,10,2"
-                            Command="{Binding AddClient}">
+                            Command="{Binding AddEmployee}">
                         Новий співробітник
                     </Button>
                     <Button Name="btn2" Background="LightBlue"
@@ -80,6 +78,7 @@
                         Повернутись до списку
                     </Button>
                 </StackPanel>
+                <TextBlock Text="* позначені обов'язкові поля." Foreground="Red"/>
             </StackPanel>
         </Border>
     </Grid>

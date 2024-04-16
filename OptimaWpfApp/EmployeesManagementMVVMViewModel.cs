@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+//using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace OptimaWpfApp
@@ -103,29 +104,34 @@ namespace OptimaWpfApp
             //throw new NotImplementedException();
         }
 
-        RelayCommand _addClientCommand;
-        public ICommand AddClient
+        RelayCommand _addEmployeeCommand;
+        public ICommand AddEmployee
         {
             get
             {
-                if (_addClientCommand == null)
-                    _addClientCommand = new RelayCommand(ExecuteAddClientCommand, CanExecuteAddClientCommand);
-                return _addClientCommand;
+                if (_addEmployeeCommand == null)
+                    _addEmployeeCommand = new RelayCommand(ExecuteAddClientCommand, CanExecuteAddClientCommand);
+                return _addEmployeeCommand;
             }
         }
 
         public void ExecuteAddClientCommand(object parameter)
         {
-            EmployeesFactory employeesFactory = new EmployeesFactory();
-            employeesFactory.Add(CurrentEmployee);
+            if (MessageBox.Show("Додати нового співробітника?",
+                      "Прийом на роботу", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                CurrentEmployee.StartDate = DateTime.Now;
+                EmployeesFactory employeesFactory = new EmployeesFactory();
+                employeesFactory.Add(CurrentEmployee);
+            }
             CurrentEmployee = null;
         }
 
         public bool CanExecuteAddClientCommand(object parameter)
         {
-            //if (string.IsNullOrEmpty(CurrentEmployee.FirstName) ||
-            //    string.IsNullOrEmpty(CurrentEmployee.LastName))
-            if (string.IsNullOrEmpty(CurrentEmployee.FirstName))
+            if (string.IsNullOrEmpty(CurrentEmployee.FirstName) ||
+                string.IsNullOrEmpty(CurrentEmployee.LastName) ||
+                string.IsNullOrEmpty(CurrentEmployee.TabNumber))
                 return false;
             return true;
         }

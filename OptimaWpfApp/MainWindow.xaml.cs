@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OptimaWpfApp.Sevices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,23 @@ namespace OptimaWpfApp
         public MainWindow()
         {
             InitializeComponent();
+        }
+        void Import_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeesFactory employees = new EmployeesFactory();
+            employees.Import();
+            EmployeesManagementMVVM employeesManagementMVVM = new EmployeesManagementMVVM();
+            //this.ref
+        }
+        void Export_Click(object sender, RoutedEventArgs e)
+        {
+            WorkerManipulation workerManipulation = new WorkerManipulation();
+            EmployeesFactory employees = new EmployeesFactory();
+            workerManipulation.WriteJson(employees.GetAllEmployees());
+        }
+        void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
