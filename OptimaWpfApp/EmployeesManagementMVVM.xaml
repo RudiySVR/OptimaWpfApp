@@ -96,7 +96,7 @@
                 <!--<TextBox Text="{Binding StartDate, Mode=TwoWay}" />-->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Звільнений" />
-                    <CheckBox IsChecked="{Binding Fired, Mode=TwoWay}" />
+                    <CheckBox IsChecked="{Binding Fired, Mode=TwoWay}" Margin="10,0,0,0" />
                 </StackPanel>
                 <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}" SelectedDateFormat="Short" >
                     <DatePicker.Style>

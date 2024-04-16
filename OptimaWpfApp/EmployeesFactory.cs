@@ -13,7 +13,7 @@ namespace OptimaWpfApp
             return employees;
         }
 
-        public void Add(Employee employee) 
+        public void Add(Employee employee)
         {
             employees.Add(employee);
         }
@@ -46,7 +46,7 @@ namespace OptimaWpfApp
                 Birthday = new DateTime(1999, 7, 20),
                 StartDate = new DateTime(2015, 7, 4),
                 EndDate = new DateTime(2017, 7, 4),
-                Fired=true
+                Fired = true
             });
             employees.Add(new Employee()
             {
@@ -62,7 +62,7 @@ namespace OptimaWpfApp
                 Birthday = DateTime.Now,
                 StartDate = DateTime.Now,
                 //EndDate = DateTime.Now
-                Fired=false
+                Fired = false
             });
             employees.Add(new Employee()
             {

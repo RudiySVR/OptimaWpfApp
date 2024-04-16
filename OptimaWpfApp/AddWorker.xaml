@@ -6,16 +6,16 @@
       xmlns:local="clr-namespace:OptimaWpfApp"
        xmlns:vm="clr-namespace:OptimaWpfApp"
      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
       Title="AddWorker">
     <Page.DataContext>
         <vm:EmployeesManagementMVVMViewModel />
     </Page.DataContext>
 
     <Grid>
-        <Border DataContext="{Binding EmployeeAdd, Mode=Default, UpdateSourceTrigger=PropertyChanged}" 
-                Margin="0,60,10,10"
-                HorizontalAlignment="Right"
+        <Border 
+                Margin="0,25,10,10"
+                HorizontalAlignment="Center"
                 Width="780"
                 Background="#66FFFFFF">
             <StackPanel Margin="10">
@@ -29,7 +29,9 @@
                 <TextBlock Text="Прізвище" />
                 <TextBox Text="{Binding LastName, Mode=TwoWay}" />
                 <TextBlock Text="Ім'я" />
-                <TextBox Text="{Binding FirstName, Mode=TwoWay}" />
+                <TextBox 
+                    Text="{Binding Path=CurrentEmployee.FirstName, UpdateSourceTrigger=PropertyChanged}">
+                </TextBox>
                 <TextBlock Text="По батькові" />
                 <TextBox Text="{Binding SoName, Mode=TwoWay}" />
                 <TextBlock Text="Посада" />
@@ -65,12 +67,19 @@
                         </Style>
                     </DatePicker.Style>
                 </DatePicker>
-                <Button  DataContext="{Binding EmployeeAdd, Mode=Default, UpdateSourceTrigger=PropertyChanged}" 
-                         Name="btn2" Background="LightBlue" 
-                         BorderBrush="Black" BorderThickness="1" 
-                         Click="OnClick2" ClickMode="Press">
-                    Новий співробітник
-                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Height="24" 
+                            Padding="10,2,10,2"
+                            Command="{Binding AddClient}">
+                        Новий співробітник
+                    </Button>
+                    <Button Name="btn2" Background="LightBlue"
+                            Padding="10,2,10,2"
+                            BorderBrush="Black" BorderThickness="1" 
+                            Click="OnClick2" ClickMode="Press">
+                        Повернутись до списку
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </Border>
     </Grid>

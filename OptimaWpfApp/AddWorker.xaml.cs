@@ -24,25 +24,25 @@ namespace OptimaWpfApp
         {
             InitializeComponent();
         }
-        void OnClick2(object sender, RoutedEventArgs e)
+        private void OnClick2(object sender, RoutedEventArgs e)
         {
-            EmployeesFactory employeesFactory = new EmployeesFactory();
-            employeesFactory.Add(new Employee()
-            {
-                Id = 1,
-                TabNumber = "0248",
-                FirstName = "Інший",
-                LastName = "Сірий",
-                SoName = "",
-                Salary = 130.25M,
-                Adress = "",
-                Phone = "",
-                JobTitle = "",
-                Birthday = new DateTime(1999, 7, 20),
-                StartDate = new DateTime(2015, 7, 4),
-                EndDate = new DateTime(2017, 7, 4),
-                Fired = true
-            });
+            //EmployeesFactory employeesFactory = new EmployeesFactory();
+            //employeesFactory.Add(new Employee()
+            //{
+            //    Id = 1,
+            //    TabNumber = "0248",
+            //    FirstName = "Інший",
+            //    LastName = "Сірий",
+            //    SoName = "",
+            //    Salary = 130.25M,
+            //    Adress = "",
+            //    Phone = "",
+            //    JobTitle = "",
+            //    Birthday = new DateTime(1999, 7, 20),
+            //    StartDate = new DateTime(2015, 7, 4),
+            //    //EndDate = new DateTime(2017, 7, 4),
+            //    //Fired = true
+            //});
 
             NavigationService.GoBack();
         }
