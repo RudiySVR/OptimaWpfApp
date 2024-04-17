@@ -1,6 +1,7 @@
 ﻿using OptimaWpfApp.Sevices;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,16 @@ namespace OptimaWpfApp
         void Import_Click(object sender, RoutedEventArgs e)
         {
             EmployeesFactory employees = new EmployeesFactory();
-            employees.Import();
-            EmployeesManagementMVVM employeesManagementMVVM = new EmployeesManagementMVVM();
-            //this.ref
+            FileInfo fileInfo = new FileInfo(@"workers.json");
+            if (fileInfo.Exists)
+            {
+                employees.Import();
+                EmployeesManagementMVVM employeesManagementMVVM = new EmployeesManagementMVVM();
+            }
+            else
+            {
+                MessageBox.Show("Файл workers.json не існує.");
+            }
         }
         void Export_Click(object sender, RoutedEventArgs e)
         {

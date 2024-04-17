@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace OptimaWpfApp.Sevices
 {
@@ -14,7 +15,10 @@ namespace OptimaWpfApp.Sevices
         public IEnumerable<Employee> ReadJson()
         {
             const string filepath = @"workers.json";
+            //IEnumerable<Employee> data = noth;
+
             // Чтение файла
+            FileInfo fileInfo = new FileInfo(filepath);
             string json = File.ReadAllText(filepath);
 
             // Десериализация строки в объект
