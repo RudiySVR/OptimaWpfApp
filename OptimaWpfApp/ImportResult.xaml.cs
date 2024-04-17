@@ -16,16 +16,17 @@ using System.Windows.Shapes;
 namespace OptimaWpfApp
 {
     /// <summary>
-    /// Логика взаимодействия для AddWorker.xaml
+    /// Логика взаимодействия для ImportResult.xaml
     /// </summary>
-    public partial class AddWorker : Page
+    public partial class ImportResult : Page
     {
-        public AddWorker()
+        public ImportResult()
         {
             InitializeComponent();
         }
-        private void OnClick2(object sender, RoutedEventArgs e)
+        private void ReturnToMain(object sender, RoutedEventArgs e)
         {
+            //EmployeesFactory employeesFactory = new EmployeesFactory();
             NavigationService.GoBack();
         }
     }

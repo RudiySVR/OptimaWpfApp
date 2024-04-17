@@ -125,6 +125,7 @@ namespace OptimaWpfApp
                 employeesFactory.Add(CurrentEmployee);
             }
             CurrentEmployee = null;
+
         }
 
         public bool CanExecuteAddClientCommand(object parameter)

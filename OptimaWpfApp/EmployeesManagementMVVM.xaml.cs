@@ -23,6 +23,7 @@ namespace OptimaWpfApp
         public EmployeesManagementMVVM()
         {
             InitializeComponent();
+
         }
         void OnClick2(object sender, RoutedEventArgs e)
         {

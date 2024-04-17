@@ -32,7 +32,9 @@ namespace OptimaWpfApp
             FileInfo fileInfo = new FileInfo(@"workers.json");
             if (fileInfo.Exists)
             {
-                employees.Import(employees);
+                employees.Import();
+                MainFrame.Navigate(new System.Uri("/ImportResult.xaml",
+                         UriKind.RelativeOrAbsolute));
             }
             else
             {

@@ -19,7 +19,7 @@ namespace OptimaWpfApp
             employees.Add(employee);
         }
 
-        public void Import(EmployeesFactory employee)
+        public void Import()
         {
             WorkerManipulation workerManipulation = new WorkerManipulation();
             employees.Clear();
