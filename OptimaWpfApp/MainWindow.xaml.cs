@@ -32,8 +32,7 @@ namespace OptimaWpfApp
             FileInfo fileInfo = new FileInfo(@"workers.json");
             if (fileInfo.Exists)
             {
-                employees.Import();
-                EmployeesManagementMVVM employeesManagementMVVM = new EmployeesManagementMVVM();
+                employees.Import(employees);
             }
             else
             {

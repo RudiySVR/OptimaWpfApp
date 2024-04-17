@@ -19,14 +19,10 @@ namespace OptimaWpfApp
             employees.Add(employee);
         }
 
-        public void Import()
+        public void Import(EmployeesFactory employee)
         {
             WorkerManipulation workerManipulation = new WorkerManipulation();
             employees.Clear();
-            //foreach (var item in employees)
-            //{
-            //    employees.Remove(item);
-            //}
             IEnumerable<Employee> temp = workerManipulation.ReadJson();
             foreach (var item in temp)
             {
