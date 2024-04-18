@@ -46,6 +46,7 @@ namespace OptimaWpfApp
             WorkerManipulation workerManipulation = new WorkerManipulation();
             EmployeesFactory employees = new EmployeesFactory();
             workerManipulation.WriteJson(employees.GetAllEmployees());
+            MessageBox.Show("Дані експортовані в файл workers.json.");
         }
         void Exit_Click(object sender, RoutedEventArgs e)
         {
