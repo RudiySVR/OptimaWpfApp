@@ -27,7 +27,10 @@ namespace OptimaWpfApp
         }
         void OnClick2(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/AddWorker.xaml", UriKind.Relative));
+            //NavigationService.Navigate(new Uri("/AddWorker.xaml", UriKind.Relative));
+            //_ = NavigationService.Navigate(new AddWorker());
+            NavigationService.Navigate(new AddWorker());
+            //NavigationService.Navigate("Hello world");
         }
     }
 }

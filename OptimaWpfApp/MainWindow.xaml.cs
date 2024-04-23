@@ -33,8 +33,9 @@ namespace OptimaWpfApp
             if (fileInfo.Exists)
             {
                 employees.Import();
-                MainFrame.Navigate(new System.Uri("/ImportResult.xaml",
-                         UriKind.RelativeOrAbsolute));
+                MainFrame.NavigationService.Refresh();
+                //MainFrame.Navigate(new System.Uri("/ImportResult.xaml",
+                //         UriKind.RelativeOrAbsolute));
             }
             else
             {

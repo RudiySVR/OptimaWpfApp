@@ -41,6 +41,7 @@
         </Menu>
         <Grid>
             <!--<Frame Source="/AddWorker.xaml" />-->
+            <!--<Frame x:Name="_mainFrame" />-->
             <Frame Name="MainFrame" Source="/EmployeesManagementMVVM.xaml" NavigationUIVisibility="Hidden" />
         </Grid>
     </DockPanel>
